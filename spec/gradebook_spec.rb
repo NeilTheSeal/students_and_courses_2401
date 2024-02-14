@@ -102,8 +102,8 @@ RSpec.describe "Gradebook" do
       @gradebook.add_course(@course3)
       expect(@gradebook.all_grades).to eq({
         @course1 => [62.5, 72.5],
-        @course2 => [82.5, 65, 75],
-        @course3 => [95, 55, 30, 80, 82.5]
+        @course2 => [82.5, 65.0, 85.0],
+        @course3 => [95.0, 35.0, 50.0, 80.0, 82.5]
       })
     end
   end

@@ -5,7 +5,7 @@ require "./lib/course"
 
 RSpec.describe "Gradebook" do
   before(:each) do
-    @gradebook = Gradebook.new(instructor)
+    @gradebook = Gradebook.new("Stephen Hawking")
   end
 
   it "exists" do

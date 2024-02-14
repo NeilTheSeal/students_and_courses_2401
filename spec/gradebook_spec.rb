@@ -40,9 +40,6 @@ RSpec.describe "Gradebook" do
         student.log_score(random_score)
       end
     end
-    @gradebook.add_course(@course1)
-    @gradebook.add_course(@course2)
-    @gradebook.add_course(@course3)
   end
 
   it "exists" do
@@ -60,6 +57,11 @@ RSpec.describe "Gradebook" do
 
   describe "#add courses" do
     it "can add courses" do
+      @gradebook.add_course(@course1)
+      @gradebook.add_course(@course2)
+      expect(@gradebook.add_course(@course3)).to eq([
+        @course1, @course2, @course3
+      ])
       expect(@gradebook.courses).to eq([@course1, @course2, @course3])
     end
   end

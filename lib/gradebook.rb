@@ -35,4 +35,14 @@ class Gradebook
     end
     student_list
   end
+
+  def students_below(threshold)
+    students_below_threshold = []
+    @courses.each do |course|
+      course.students.each do |student|
+        students_below_threshold << student if student.grade < threshold
+      end
+    end
+    students_below_threshold
+  end
 end

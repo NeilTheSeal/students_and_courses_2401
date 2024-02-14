@@ -20,4 +20,8 @@ class Gradebook
     @instructor = instructor
     @courses = []
   end
+
+  def add_course(course)
+    @courses << course
+  end
 end

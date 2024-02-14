@@ -65,5 +65,18 @@ RSpec.describe "Gradebook" do
       expect(@gradebook.courses).to eq([@course1, @course2, @course3])
     end
   end
+
+  describe "#student statistics" do
+    it "can list all students" do
+      @gradebook.add_course(@course1)
+      @gradebook.add_course(@course2)
+      @gradebook.add_course(@course3)
+      expect(@gradebook.list_all_students).to eq({
+        "Calculus" => [@student1, @student2],
+        "Physics" => [@student3, @student4, @student5],
+        "Music" => [@student6, @student7, @student8, @student9, @student10]
+      })
+    end
+  end
 end
 # rubocop:enable Metrics/BlockLength

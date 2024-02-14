@@ -36,7 +36,7 @@ RSpec.describe "Gradebook" do
     ]
     @students.each do |student|
       3.times do
-        random_score = Random.new(50..100)
+        random_score = Random.new.rand(50..100)
         student.log_score(random_score)
       end
     end

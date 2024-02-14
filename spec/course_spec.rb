@@ -12,4 +12,16 @@ RSpec.describe Course do
   it "exists" do
     expect(@course).to be_an_instance_of(Course)
   end
+
+  describe "#initialization" do
+    it "has a name" do
+      expect(@course.name).to eq("Calculus")
+    end
+    it "has a capacity" do
+      expect(@course.capacity).to eq(2)
+    end
+    it "has a list of students" do
+      expect(@course.students).to eq([])
+    end
+  end
 end

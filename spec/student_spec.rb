@@ -15,5 +15,8 @@ RSpec.describe Student do
     it "has a name" do
       expect(@student.name).to eq("Morgan")
     end
+    it "has an age" do
+      expect(@student.age).to eq(21)
+    end
   end
 end

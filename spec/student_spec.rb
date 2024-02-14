@@ -18,5 +18,8 @@ RSpec.describe Student do
     it "has an age" do
       expect(@student.age).to eq(21)
     end
+    it "has empty scores array" do
+      expect(@student.scores).to eq([])
+    end
   end
 end

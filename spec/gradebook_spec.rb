@@ -72,9 +72,9 @@ RSpec.describe "Gradebook" do
       @gradebook.add_course(@course2)
       @gradebook.add_course(@course3)
       expect(@gradebook.list_all_students).to eq({
-        "Calculus" => [@student1, @student2],
-        "Physics" => [@student3, @student4, @student5],
-        "Music" => [@student6, @student7, @student8, @student9, @student10]
+        @course1 => [@student1, @student2],
+        @course2 => [@student3, @student4, @student5],
+        @course3 => [@student6, @student7, @student8, @student9, @student10]
       })
     end
   end

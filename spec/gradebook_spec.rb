@@ -96,6 +96,16 @@ RSpec.describe "Gradebook" do
         @student1, @student2, @student4, @student7, @student8
       ])
     end
+    it "can list all grades for each course" do
+      @gradebook.add_course(@course1)
+      @gradebook.add_course(@course2)
+      @gradebook.add_course(@course3)
+      expect(@gradebook.all_grades).to eq({
+        @course1 => [62.5, 72.5],
+        @course2 => [82.5, 65, 75],
+        @course3 => [95, 55, 30, 80, 82.5]
+      })
+    end
   end
 end
 # rubocop:enable Metrics/BlockLength

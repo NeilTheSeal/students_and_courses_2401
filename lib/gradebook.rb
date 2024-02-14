@@ -45,4 +45,15 @@ class Gradebook
     end
     students_below_threshold
   end
+
+  def all_grades
+    grades_list = {}
+    @courses.each do |course|
+      grades_list[course] = []
+      course.students.each do |student|
+        grades_list[course] << student.grade
+      end
+    end
+    grades_list
+  end
 end

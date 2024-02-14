@@ -1,8 +1,13 @@
-# Student class
+# Student class - logs test scores and holds grade information for a student
 #
 # Syntax:
 #
 # student = Student.new({ name: "Biff", age: 75 })
+#
+# Methods:
+#
+# student.log_score(score)
+# student.grade
 class Student
   attr_reader :name, :age, :scores
 

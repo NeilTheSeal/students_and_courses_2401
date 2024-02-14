@@ -34,5 +34,10 @@ RSpec.describe Course do # rubocop:disable Metrics/BlockLength
       @course.enroll(@student2)
       expect(@course.students).to eq([@student1, @student2])
     end
+    it "can reach capacity" do
+      @course.enroll(@student1)
+      @course.enroll(@student2)
+      expect(@course.full?).to eq(true)
+    end
   end
 end

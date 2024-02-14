@@ -26,6 +26,8 @@ class Course
   end
 
   def enroll(student)
+    return if full?
+
     @students << student
   end
 end

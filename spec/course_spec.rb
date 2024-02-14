@@ -2,7 +2,7 @@ require "rspec"
 require "./lib/course"
 require "./lib/student"
 
-RSpec.describe Course do
+RSpec.describe Course do # rubocop:disable Metrics/BlockLength
   before(:each) do
     @course = Course.new("Calculus", 2)
     @student1 = Student.new({ name: "Morgan", age: 21 })
@@ -28,6 +28,11 @@ RSpec.describe Course do
   describe "#add students" do
     it "is not full when students is less than capacity" do
       expect(@course.full?).to eq(false)
+    end
+    it "can enroll students" do
+      @course.enroll(@student1)
+      @course.enroll(@student2)
+      expect(@course.students).to eq([@student1, @student2])
     end
   end
 end

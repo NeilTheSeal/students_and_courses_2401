@@ -30,16 +30,27 @@ RSpec.describe "Gradebook" do
     @course3.enroll(@student8)
     @course3.enroll(@student9)
     @course3.enroll(@student10)
-    @students = [
-      @student1, @student2, @student3, @student4, @student5,
-      @student6, @student7, @student8, @student9, @student10
-    ]
-    @students.each do |student|
-      3.times do
-        random_score = Random.new.rand(50..100)
-        student.log_score(random_score)
-      end
-    end
+    @student1.log_score(50)
+    @student1.log_score(75)
+    @student2.log_score(60)
+    @student2.log_score(85)
+    @student3.log_score(70)
+    @student3.log_score(95)
+    @student4.log_score(60)
+    @student4.log_score(70)
+    @student5.log_score(80)
+    @student5.log_score(90)
+    @student6.log_score(90)
+    @student6.log_score(100)
+    @student7.log_score(20)
+    @student7.log_score(50)
+    @student8.log_score(50)
+    @student8.log_score(50)
+    @student9.log_score(85)
+    @student9.log_score(75)
+    @student10.log_score(90)
+    @student10.log_score(75)
+    # students below 75 - student1, student2, student4, student7, student8
   end
 
   it "exists" do
@@ -76,6 +87,14 @@ RSpec.describe "Gradebook" do
         @course2 => [@student3, @student4, @student5],
         @course3 => [@student6, @student7, @student8, @student9, @student10]
       })
+    end
+    it "can list all students below a grade threshold" do
+      @gradebook.add_course(@course1)
+      @gradebook.add_course(@course2)
+      @gradebook.add_course(@course3)
+      expect(@gradebook.students_below(75)).to eq([
+        @student1, @student2, @student4, @student7, @student8
+      ])
     end
   end
 end

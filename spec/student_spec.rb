@@ -1,7 +1,7 @@
 require "rspec"
 require "./lib/student"
 
-RSpec.describe Student do
+RSpec.describe Student do # rubocop:disable Metrics/BlockLength
   before(:each) do
     @student = Student.new({ name: "Morgan", age: 21 })
   end
@@ -20,6 +20,19 @@ RSpec.describe Student do
     end
     it "has empty scores array" do
       expect(@student.scores).to eq([])
+    end
+  end
+
+  describe "#log and display test scores" do
+    it "can add test scores" do
+      @student.log_score(89)
+      @student.log_score(78)
+      expect(@student.scores).to eq([89, 78])
+    end
+    it "can give an average grade" do
+      @student.log_score(89)
+      @student.log_score(78)
+      expect(@student.grade).to eq(83.5)
     end
   end
 end
